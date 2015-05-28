@@ -24,7 +24,9 @@ var drawCoin = function(hash) {
   var color = hash.color;
   var win = hash.win;
   // animateCoin(column);
-  $(".column-" + column + ".row-" + row).addClass("coin " + color)
+  $(".column-" + column + ".row-" + row).addClass("coin animated flip " + color)
+  flipCoin(color);
+
   if (win == true) {
     $(".board .win").show();
   }
@@ -37,10 +39,26 @@ var animateCoin = function(column) {
   coin.css( "top", "300px");
 }
 
+var flipCoin = function(color) {
+  if (color == "yellow") {
+    $("#coin-blue").show();
+    $("#coin-yellow").hide();
+    $(".coin").css("left", "0");
+    $(".coin").css("top", "0");
+  }
+  else {
+    $("#coin-yellow").show();
+    $("#coin-blue").hide();
+    $(".coin").css("left", "0");
+    $(".coin").css("top", "0");
+  }
+}
+
 var game = new Game();
 
 drawBoard();
 findColumn();
+$("#coin-blue").hide();
 
 // drawCoin({column: 4, row: 6, color: "yellow"});
 // drawCoin({column: 2, row: 5, color: "blue"});
