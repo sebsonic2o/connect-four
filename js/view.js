@@ -13,22 +13,35 @@ var findColumn = function() {
     var myClass = $(this).attr('class');
     var column = parseInt(this.classList[1].slice(-1))
     //pass column into data function
-    game.dropCoin(column);
+    var result = game.dropCoin(column);
+    drawCoin(result);
   });
 }
 
-var dropCoin = function(hash) {
+var drawCoin = function(hash) {
   var column = hash.column;
   var row = hash.row;
   var color = hash.color;
   var win = hash.win;
+  // animateCoin(column);
   $(".column-" + column + ".row-" + row).addClass("coin " + color)
   if (win == true) {
     $(".board .win").show();
   }
 }
 
+var animateCoin = function(column) {
+  var coin = $(".animate-coin");
+  coin.css( "left", "100px" );
+  coin.show();
+  coin.css( "top", "300px");
+}
+
+var game = new Game();
+
 drawBoard();
 findColumn();
-dropCoin({column: 4, row: 6, color: "yellow"});
+
+// drawCoin({column: 4, row: 6, color: "yellow"});
+// drawCoin({column: 2, row: 5, color: "blue"});
 console.log("document loaded");
