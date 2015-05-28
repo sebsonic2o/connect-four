@@ -1,25 +1,55 @@
-.board {
-  width: 700px;
+.wrapper {
+  width: 780px;
   margin: 0 auto;
   margin-top: 40px;
+}
+.board {
   position: relative;
+  background: #ffec42;
+  padding: 20px;
+  border-right: 20px solid #4D88C2;
+  border-left: 20px solid #4D88C2;
+}
+.board-legs {
+  height: 100px;
+  border-right: 20px solid #4D88C2;
+  border-left: 20px solid #4D88C2;
 }
 .cell {
-  width: 98px;
-  height: 98px;
+  width: 96px;
+  height: 96px;
   float: left;
-  border: 1px solid white;
-  background: #CCC;
+  background: #FFF;
+  border: 2px #ffec42 solid;
+  border-radius: 50%;
+  box-shadow: inset 1px -3px 6px rgba(68,68,68,0.4);
 }
-
+.animate-coin {
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  background-color: #000;
+  background-size: 86px 86px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .coin {
 
 }
 .blue {
-  background: blue;
+  background-color: #0146ad;
+  background-image: url("../images/blue-coin.jpg");
+  background-size: 86px 86px;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .yellow {
-  background: yellow;
+  background-color: #f8c536;
+  background-image: url("../images/yellow-coin.jpg");
+  background-size: 88px 88px;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .win {
   width: 400px;
