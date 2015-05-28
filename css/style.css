@@ -15,6 +15,9 @@
   border-right: 20px solid #4D88C2;
   border-left: 20px solid #4D88C2;
 }
+.coin-slot {
+  text-align: center;
+}
 .cell {
   width: 96px;
   height: 96px;
@@ -23,19 +26,16 @@
   border: 2px #ffec42 solid;
   border-radius: 50%;
   box-shadow: inset 1px -3px 6px rgba(68,68,68,0.4);
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.animate-coin {
+
+.coin {
   border-radius: 50%;
   width: 96px;
   height: 96px;
-  position: absolute;
-  background-color: #000;
-  background-size: 86px 86px;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.coin {
-
+  display: inline-block;
 }
 .blue {
   background-color: #0146ad;
@@ -50,6 +50,7 @@
   background-size: 88px 88px;
   background-repeat: no-repeat;
   background-position: center center;
+
 }
 .win {
   width: 400px;
