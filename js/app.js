@@ -56,7 +56,7 @@ Game.prototype.checkColumn = function(column) {
       column_to_check[index] = this.color;
       return index+1;
     }
-    else if (column_to_check[index] == this.color)
+    else if (column_to_check[index] == this.color) {
       count++;
     }
     else {
@@ -80,7 +80,7 @@ Game.prototype.dropCoin = function(column) {
   var row = this.checkColumn(column);
   // var win = this.checkWin();
 
-  if (!win) {
+  if (!this.win) {
     this.changeColor();
   }
 
@@ -103,4 +103,4 @@ Game.prototype.dropCoin = function(column) {
 
 // }
 
-console.log(game.columns);
+// console.log(game.columns);
