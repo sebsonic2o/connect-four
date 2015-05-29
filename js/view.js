@@ -2,20 +2,23 @@ var drawBoard = function() {
   for (var row = 6; row >= 1; row-- ) {
     for (var column = 1; column <= 7; column++) {
       console.log();
-      $(".board").append("<div class='cell column-" + column + " row-" + row + "'>" + column +"," + row +"</div>");
+      $(".board").append("<div class='cell column-" + column + " row-" + row + "'></div>");
     }
   }
 }
 
 var findColumn = function() {
-  $(".cell").on("click", function() {
+  if (play == true) {
+    console.log(play)
+    $(".cell").on("click", function() {
     //read in the column of the cell user has clicked
     var myClass = $(this).attr('class');
     var column = parseInt(this.classList[1].slice(-1))
     //pass column into data function
     var result = game.dropCoin(column);
     drawCoin(result);
-  });
+    });
+  }
 }
 
 var drawCoin = function(hash) {
@@ -29,6 +32,8 @@ var drawCoin = function(hash) {
 
   if (win == true) {
     $(".board .win").show();
+    $(".board .win ").addClass("rotateIn animated")
+    play == false
   }
 }
 
@@ -38,6 +43,7 @@ var animateCoin = function(column) {
   coin.show();
   coin.css( "top", "300px");
 }
+
 
 var flipCoin = function(color) {
   if (color == "yellow") {
@@ -55,6 +61,7 @@ var flipCoin = function(color) {
 }
 
 var game = new Game();
+play = true
 
 drawBoard();
 findColumn();

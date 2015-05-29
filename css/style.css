@@ -65,6 +65,7 @@
   color: white;
   text-align: center;
   padding-top: 160px;
+  z-index: 1000;
 }
 
 
