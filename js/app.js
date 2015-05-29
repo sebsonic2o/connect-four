@@ -24,7 +24,8 @@ var createNestedArray = function(first_dimension, second_dimension, default_valu
 var Game = function (){
   this.win = false;
   this.color = "yellow";
-  this.columns = createNestedArray(7, 6, 'X')
+  this.columns = createNestedArray(7, 6, 'X');
+  this.rows = createNestedArray(6, 7, 'X');
   // this.player2
   // this.blueCoin
   // this.yellowCoin
@@ -39,7 +40,7 @@ Game.prototype.changeColor = function() {
     this.color = "yellow";
   }
 
-  return this.color
+  return this.color;
 }
 
 Game.prototype.checkColumn = function(column) {
@@ -51,7 +52,6 @@ Game.prototype.checkColumn = function(column) {
     if (column_to_check[index] == 'X') {
       if (count == 3) {
         this.win = true;
-        console.log("WIIIIIIIIIIIIN!!!");
       }
       column_to_check[index] = this.color;
       return index+1;
@@ -66,21 +66,58 @@ Game.prototype.checkColumn = function(column) {
   }
 }
 
-// Game.prototype.checkWin = function() {
-//   //game checks board for 4 in a row.
-//   //
-// }
+Game.prototype.checkRow = function(row, column) {
+  var count = 0;
+  var row_to_check = this.rows[row - 1];
+
+  // I fill the row to check with the color at the right position
+  row_to_check[column - 1] = this.color;
+
+  for (var index = 0; index < row_to_check.length ; index++) {
+
+    if (row_to_check[index] == this.color) {
+      count++;
+      if (count == 4) {
+        return this.win = true;
+      }
+    }
+    else {
+      count = 0;
+    }
+
+  }
+
+}
+
+Game.prototype.checkColumn = function(column) {
+  var count = 0;
+  var column_to_check = this.columns[column - 1];
+
+  for (var index = 0; index < column_to_check.length ; index++) {
+
+    if (column_to_check[index] == 'X') {
+      if (count == 3) {
+        this.win = true;
+      }
+      column_to_check[index] = this.color;
+      return index+1;
+    }
+    else if (column_to_check[index] == this.color) {
+      count++;
+    }
+    else {
+      count = 0;
+    }
+
+  }
+}
 
 Game.prototype.dropCoin = function(column) {
-  //player drops coin returns a position on board
-  //game checks positions on board..
-  //  if board position is empty
-  //place blue or yellow coin in that position..
-  var color = this.color
+  var color = this.color;
   var row = this.checkColumn(column);
-  // var win = this.checkWin();
 
   if (!this.win) {
+    this.checkRow(row, column);
     this.changeColor();
   }
 
@@ -90,17 +127,3 @@ Game.prototype.dropCoin = function(column) {
     color: color
   };
 }
-
-// game = new Game();
-
-// for (i=1; i<3; i++) {
-
-//   for (j=1; j<8; j++) {
-//     result = game.dropCoin(0);
-//     console.log(result["color"]);
-//     console.log(result["row"]);
-//   }
-
-// }
-
-// console.log(game.columns);
