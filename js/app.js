@@ -142,6 +142,8 @@ Game.prototype.checkDiagonals = function(row, column) {
     return this.win = true;
   }
 
+  count = 0;
+
   // right to left diagonal
   // going up
   var j = row+1;
