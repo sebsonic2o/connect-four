@@ -1,3 +1,5 @@
+# Connect Four
+
 Connect Four is a one-page application to play the connection game with a friend.
 
 It was written in JavaScript, leveraging Animate.css and jQuery UI.
