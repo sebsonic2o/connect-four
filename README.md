@@ -8,7 +8,7 @@ As part of a fun one-day group project, we first went into some creative whitebo
 
 ![whiteboard](images/whiteboard.png)
 
-We then organized into two teams. One team was responsible for the user experience, and another team was in charge of the game logic. The key to our success was to clearly define expected inputs and outputs.
+We then self-organized into two teams. One team was responsible for the user experience, and another team was in charge of the game logic. The key to our success was to clearly define expected inputs and outputs.
 
 ## Play
 
